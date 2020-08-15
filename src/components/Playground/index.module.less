@@ -1,0 +1,42 @@
+.playground {
+  width: 512px;
+  height: 706px;
+  border: 1px solid #333;
+  position: absolute;
+  z-index: 11;
+  overflow: hidden;
+}
+
+.ship {
+  height: 64px;
+  width: 64px;
+  filter: invert(1);
+  position: absolute;
+  top: 320px;
+}
+
+.space {
+  position: absolute;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  top: -64px;
+  .gap {
+    width: 64px;
+    background-color: transparent;
+  }
+  .fill {
+    width: 64px;
+    background-color: black;
+  }
+  animation: slide 5s linear 0s none;
+}
+
+@keyframes slide {
+  0% {
+    top: -64px;
+  }
+  100% {
+    top: 100%;
+  }
+}

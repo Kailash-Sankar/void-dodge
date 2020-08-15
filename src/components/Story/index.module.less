@@ -1,0 +1,45 @@
+@import "colors.less";
+
+.about {
+  font-size: 1rem;
+  margin: 2%;
+
+  div {
+    margin-bottom: 10px;
+    line-height: 1.5;
+
+    sub {
+      color: @alt-highlight;
+    }
+
+    li {
+      line-height: 1.5;
+    }
+  }
+
+  span {
+    display: block;
+    color: @alt-highlight;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+  }
+}
+
+.social {
+  justify-content: center;
+
+  div {
+    text-align: center;
+  }
+
+  img {
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    border: 2px solid @dark-alpha;
+    transition: border 0.2s linear;
+    &:hover {
+      border-color: @alt-highlight;
+    }
+  }
+}
