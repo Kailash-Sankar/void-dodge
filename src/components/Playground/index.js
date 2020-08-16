@@ -7,6 +7,8 @@ import Score from "./Score";
 import * as styles from "./index.module.less";
 
 let i = 0;
+const voidGenInterval = 1 * 2000;
+const voidRemoveDelay = 1 * 8000;
 
 function Playground() {
   const [voids, setVoids] = useState([]);
@@ -18,14 +20,14 @@ function Playground() {
         ...voids,
         <Space key={`space-${i}`} id={`space-${i}`} />,
       ]);
-    }, 2000);
+    }, voidGenInterval);
 
     let removeIntervalId;
     const timeoutId = setTimeout(() => {
       removeIntervalId = setInterval(() => {
         setVoids((voids) => voids.slice(1));
-      }, 2000);
-    }, 8000);
+      }, voidGenInterval);
+    }, voidRemoveDelay);
 
     return () => {
       clearInterval(addIntervalId);
@@ -36,6 +38,7 @@ function Playground() {
 
   return (
     <div className={classnames(styles.playground, "center-this")}>
+      <Space />
       {voids}
       <Ship />
       <Score />

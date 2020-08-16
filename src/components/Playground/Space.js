@@ -4,9 +4,18 @@ import * as styles from "./index.module.less";
 import { shipPosSelector, actions } from "@store/gameReducer";
 import { shipSize } from "@utils/constants";
 
-const maxItems = 8;
+import iconAstro1 from "@images/icon_astro1.png";
+import iconAstro2 from "@images/icon_astro2.png";
+import iconAstro3 from "@images/icon_astro3.png";
+import iconAstro4 from "@images/icon_astro4.png";
+import iconAstro5 from "@images/icon_astro5.png";
 
-function generateGapIndexes(limit = 4) {
+const maxItems = 8;
+const astroIcons = [iconAstro1, iconAstro2, iconAstro3, iconAstro4, iconAstro5];
+
+function generateGapIndexes() {
+  let limit = 1 + Math.floor(Math.random() * 4);
+  console.log("limit", limit);
   const gapsIdx = [];
   while (limit > 0) {
     gapsIdx.push(Math.floor(Math.random() * maxItems));
@@ -20,17 +29,23 @@ function Gap() {
 }
 
 function Fill() {
-  return <div className={styles.fill}></div>;
+  return (
+    <div className={styles.fill}>
+      <img
+        src={astroIcons[Math.floor(Math.random() * astroIcons.length)]}
+        alt="-"
+      />
+    </div>
+  );
 }
 
 function Space() {
-  const gapsIdx = generateGapIndexes();
   const shipPos = useSelector(shipPosSelector);
   const dispatch = useDispatch();
-
   const spaceRef = useRef();
 
   const { field, fillPoints } = useMemo(() => {
+    const gapsIdx = generateGapIndexes();
     const field = [];
     const fillPoints = [];
 
