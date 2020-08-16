@@ -5,10 +5,13 @@ function Story() {
   return (
     <div className={styles.about}>
       <div className={styles.sub}>
-        And I am{" "}
-        <a href={"https://kailash-sankar.github.io/#/"}>Kailash Sankar</a>, a
-        web developer.
+        I am <a href={"https://kailash-sankar.github.io/#/"}>Kailash Sankar</a>,
+        a web developer.
         <br />
+      </div>
+      <div className={styles.sub}>
+        Game icons are from{" "}
+        <a href="https://www.iconfinder.com/iconsets/space-82">IconFinder</a>
       </div>
     </div>
   );

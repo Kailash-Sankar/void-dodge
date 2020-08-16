@@ -20,6 +20,7 @@ function Ship() {
   return (
     <div className={styles.ship} style={{ left: pos }}>
       <img src={iconShip} alt="<ship>" />
+      <div className={styles.flame} />
     </div>
   );
 }
