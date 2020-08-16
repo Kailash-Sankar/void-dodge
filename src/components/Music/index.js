@@ -13,7 +13,7 @@ function Music() {
   const init = useCallback(() => {
     setPlaying(true);
     document.removeEventListener("keydown", init);
-  });
+  }, []);
 
   useEffect(() => {
     playing ? audio.play() : audio.pause();
@@ -22,7 +22,10 @@ function Music() {
 
   useEffect(() => {
     document.addEventListener("keydown", init);
-    return () => document.removeEventListener("keydown", init);
+    return () => {
+      document.removeEventListener("keydown", init);
+      audio.pause();
+    };
   }, []);
 
   return (
