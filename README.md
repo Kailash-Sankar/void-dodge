@@ -1,3 +1,3 @@
 # Hello there
 
-This is going to be my new portfolio website. It's a work in progress.
+Void Dodge is a react based obstacle dodging game.
