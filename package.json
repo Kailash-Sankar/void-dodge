@@ -1,9 +1,8 @@
 {
-  "name": "space-jump",
+  "name": "void-dodge",
   "version": "1.0.0",
   "description": "A tiny javascript game",
-  "main": "index.js",
-  "homepage": "",
+  "homepage": "https://Kailash-Sankar.github.io/void-dodge",
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server --open --config webpack.dev.js --host 0.0.0.0",
     "lint-check": "eslint 'src/**/*.{js,ts,jsx,tsx}'",
@@ -26,7 +25,7 @@
   "author": "Kailash Sankar",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/Kailash-Sankar/void-dodge.git"
   },
   "license": "ISC",
   "dependencies": {
