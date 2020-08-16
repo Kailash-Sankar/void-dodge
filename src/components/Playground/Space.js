@@ -15,7 +15,6 @@ const astroIcons = [iconAstro1, iconAstro2, iconAstro3, iconAstro4, iconAstro5];
 
 function generateGapIndexes() {
   let limit = 1 + Math.floor(Math.random() * 4);
-  console.log("limit", limit);
   const gapsIdx = [];
   while (limit > 0) {
     gapsIdx.push(Math.floor(Math.random() * maxItems));

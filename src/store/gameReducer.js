@@ -11,7 +11,7 @@ import { startPos } from "@utils/constants";
 const initialState = {
   shipPos: startPos,
   score: 0,
-  gameState: 1,
+  gameState: 0,
   summary: null,
 };
 
