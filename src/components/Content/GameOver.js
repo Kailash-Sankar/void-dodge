@@ -44,7 +44,7 @@ function ScoreBoard({ scores }) {
         </tbody>
       </table>
 
-      <div className="sub-title">Press &quot;anykey&quot; to continue</div>
+      <div className="sub-title">Press anykey to continue</div>
     </div>
   );
 }

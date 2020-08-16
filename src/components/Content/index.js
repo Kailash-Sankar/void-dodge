@@ -15,7 +15,7 @@ function Content({ handleKeyDown }) {
         <GlitchText type="large" text="Void Dodge" />
       </div>
       <div className="title">A tiny javascript game</div>
-      <div className="sub-title">Press &quot;anykey&quot; to start</div>
+      <div className="sub-title">Press anykey to start</div>
     </div>
   );
 }
