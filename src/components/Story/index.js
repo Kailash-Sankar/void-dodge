@@ -13,6 +13,10 @@ function Story() {
         Game icons are from{" "}
         <a href="https://www.iconfinder.com/iconsets/space-82">IconFinder</a>
       </div>
+      <div className={styles.sub}>
+        Music is from{" "}
+        <a href="https://www.fesliyanstudios.com/">fesliyanstudios</a>
+      </div>
     </div>
   );
 }
