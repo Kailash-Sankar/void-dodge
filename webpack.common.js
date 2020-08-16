@@ -35,6 +35,7 @@ module.exports = {
       "@images": path.resolve(__dirname, "./src/images/"),
       "@store": path.resolve(__dirname, "./src/store/"),
       "@api": path.resolve(__dirname, "./src/api/"),
+      "@assests": path.resolve(__dirname, "./src/assests/"),
     },
   },
   module: {
@@ -85,6 +86,17 @@ module.exports = {
             options: {
               outputPath: "static/images/",
               //publicPath: "../images/",
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(mp3)$/i,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              outputPath: "static/assests/",
             },
           },
         ],
