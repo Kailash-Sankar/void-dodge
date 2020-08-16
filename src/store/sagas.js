@@ -1,7 +1,11 @@
-import { call, put, takeLatest } from "redux-saga/effects";
-import { types as projectTypes } from "./gameReducer";
-import Api from "@api";
-import { parseProjects } from "@utils/project";
+import { takeLatest, select, put } from "redux-saga/effects";
+import {
+  types as gameTypes,
+  scoreSelector,
+  actions as gameActions,
+} from "./gameReducer";
+import { scoreStore } from "@utils/scorePersistence";
+import { maxRecentScoresSize } from "@utils/constants";
 
 // initialize  and check auth
 function* helloSaga() {
@@ -13,18 +17,31 @@ function* helloSaga() {
   }
 }
 
-function* getProjects() {
-  try {
-    const res = yield call(Api.getRepoList);
-    yield put({ type: projectTypes.SET_SUCCESS, data: parseProjects(res) });
-  } catch (err) {
-    yield put({ type: projectTypes.SET_ERROR });
+/*
+  { top: { value: , ts }, recent: { value, ts } }
+*/
+
+function* persistScore() {
+  const value = yield select(scoreSelector);
+  const ts = Date.now();
+
+  let { recent, top } = scoreStore.get() || { recent: [], top: null };
+  if (recent.length === maxRecentScoresSize) {
+    recent.pop();
   }
+  recent.unshift({ value, ts });
+
+  if (!top || top.value < value) {
+    top = { value, ts };
+  }
+
+  scoreStore.set({ recent, top });
+  yield put(gameActions.setSummary({ recent, top }));
 }
 
 export function* initSaga() {
   // load test
   yield helloSaga();
 
-  yield takeLatest(projectTypes.INIT, getProjects);
+  yield takeLatest(gameTypes.GAME_OVER, persistScore);
 }

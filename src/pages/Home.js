@@ -1,19 +1,18 @@
 import React, { useCallback } from "react";
 import { Particles, Content, Playground, GameOver } from "@components";
-import { gameOverSelector, actions } from "@store/gameReducer";
+import { gameStateSelector, actions } from "@store/gameReducer";
 import { useSelector, useDispatch } from "react-redux";
 
 function Home() {
-  const gameOver = useSelector(gameOverSelector);
+  const gameOver = useSelector(gameStateSelector);
   const dispatch = useDispatch();
 
   const handleGameStart = useCallback(() => {
-    dispatch(actions.setGameOver(1));
+    dispatch(actions.startGame());
   });
 
   const handleGameReset = useCallback(() => {
-    dispatch(actions.setGameOver(0));
-    dispatch(actions.resetGame(0));
+    dispatch(actions.resetGame());
   });
 
   return (

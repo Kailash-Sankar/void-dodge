@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import classnames from "classnames";
 import Space from "./Space";
 import Ship from "./Ship";
+import Score from "./Score";
 
 import * as styles from "./index.module.less";
 
@@ -37,6 +38,7 @@ function Playground() {
     <div className={classnames(styles.playground, "center-this")}>
       {voids}
       <Ship />
+      <Score />
     </div>
   );
 }

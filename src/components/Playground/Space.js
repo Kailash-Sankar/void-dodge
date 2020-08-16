@@ -52,7 +52,7 @@ function Space() {
         spaceRef.current.offsetTop <= 384
       ) {
         if (fillPoints.includes(shipPos)) {
-          dispatch(actions.setGameOver(2));
+          dispatch(actions.endGame());
         } else {
           dispatch(actions.updateScore());
           clearInterval(intervalId);

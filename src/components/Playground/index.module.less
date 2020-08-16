@@ -1,3 +1,5 @@
+@import "colors.less";
+
 .playground {
   width: 512px;
   height: 706px;
@@ -29,7 +31,7 @@
     width: 64px;
     background-color: black;
   }
-  animation: slide 5s linear 0s none;
+  animation: slide 4s linear 0s none;
 }
 
 @keyframes slide {
@@ -39,4 +41,16 @@
   100% {
     top: 100%;
   }
+}
+
+.score {
+  border: 1px solid @dark-secondary;
+  width: 100px;
+  height: 30px;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  color: @light-green;
+  line-height: 2;
+  font-weight: 600;
 }

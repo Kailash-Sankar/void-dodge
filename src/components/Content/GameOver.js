@@ -1,11 +1,56 @@
 import React, { useEffect } from "react";
 import { GlitchText, Blinker } from "@components/GlitchText";
 import { useSelector } from "react-redux";
-import { scoreSelector } from "@store/gameReducer";
+import { summaryStateSelector } from "@store/gameReducer";
 import "./index.less";
 
+function Score({ entry }) {
+  return (
+    <tr className="score-row">
+      <td>{entry.value}</td>
+      <td>{new Date(entry.ts).toLocaleString()}</td>
+    </tr>
+  );
+}
+
+function ScoreBoard({ scores }) {
+  const { recent, top } = scores;
+
+  return (
+    <div className="score-board">
+      <div className="title">Score Board</div>
+
+      <table>
+        <thead>
+          <tr>
+            <td colSpan="2">Recent Score</td>
+          </tr>
+        </thead>
+        <tbody>
+          {recent.map((row, idx) => (
+            <Score entry={row} idx={idx} key={idx + "-" + row.ts} />
+          ))}
+        </tbody>
+      </table>
+
+      <table>
+        <thead>
+          <tr>
+            <td colSpan="2">Top Score</td>
+          </tr>
+        </thead>
+        <tbody>
+          <Score entry={top} />
+        </tbody>
+      </table>
+
+      <div className="sub-title">Press &quot;anykey&quot; to continue</div>
+    </div>
+  );
+}
+
 function GameOver({ handleKeyDown }) {
-  const score = useSelector(scoreSelector);
+  const scoreStore = useSelector(summaryStateSelector);
 
   useEffect(() => {
     document.addEventListener("keydown", handleKeyDown);
@@ -18,8 +63,7 @@ function GameOver({ handleKeyDown }) {
       <div className="flex-hz">
         <GlitchText type="large" text="Game Over" />
       </div>
-      <div className="sub-title">Score: {score} </div>
-      <div className="sub-title">Press &quot;anykey&quot; to continue</div>
+      {scoreStore ? <ScoreBoard scores={scoreStore} /> : null}
     </div>
   );
 }

@@ -8,8 +8,41 @@
   cursor: pointer;
   width: auto;
 
+  .title {
+    font-size: 1.5em;
+    margin-bottom: 8px;
+    color: snow;
+  }
+
+  .score-board {
+    text-align: center;
+    font-size: 1.2em;
+    color: snow;
+    table {
+      margin: 20px auto;
+      padding: 5px;
+      border: 1px solid @alt-highlight;
+      border-radius: 5px;
+      color: snow;
+      thead td {
+        border-bottom: 1px solid @alt-highlight;
+        font-weight: 600;
+      }
+      tbody td {
+        font-weight: 400;
+        padding: 0 10px;
+      }
+      tbody td:first-child {
+        border-right: 1px solid @alt-highlight;
+        color: #ff9800;
+        font-weight: 600;
+      }
+    }
+  }
+
   .sub-title {
     font-size: 1.2em;
+    color: @alt-highlight;
   }
 
   &:hover + #particle_wrapper #tsparticles {

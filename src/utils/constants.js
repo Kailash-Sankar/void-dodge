@@ -7,3 +7,5 @@ export const playgroundSize = {
   left: 0,
   right: 448,
 };
+
+export const maxRecentScoresSize = 5;

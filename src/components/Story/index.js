@@ -7,9 +7,8 @@ function Story() {
       <div className={styles.sub}>
         And I am{" "}
         <a href={"https://kailash-sankar.github.io/#/"}>Kailash Sankar</a>, a
-        full stack web developer.
+        web developer.
         <br />
-        Reach me at:
       </div>
     </div>
   );
