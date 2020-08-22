@@ -17,11 +17,20 @@ function Home() {
     dispatch(actions.resetGame());
   });
 
+  const renderGameState = () => {
+    switch (gameOver) {
+      case 0:
+        return <Content handleKeyDown={handleGameStart} />;
+      case 1:
+        return <Playground />;
+      case 2:
+        return <GameOver handleKeyDown={handleGameReset} />;
+    }
+  };
+
   return (
     <div>
-      {gameOver === 0 && <Content handleKeyDown={handleGameStart} />}
-      {gameOver === 1 && <Playground />}
-      {gameOver === 2 && <GameOver handleKeyDown={handleGameReset} />}
+      {renderGameState()}
       <Particles />
       <Suspense fallback={"loading music...."}>
         <Music />

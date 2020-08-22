@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "./index.less";
-import { GlitchText, Blinker } from "@components/GlitchText";
+import { GlitchText, Ship } from "@components/GlitchText";
 
 function Content({ handleKeyDown }) {
   useEffect(() => {
@@ -10,12 +10,12 @@ function Content({ handleKeyDown }) {
 
   return (
     <div className="intro center-this">
-      <Blinker type="large" />
+      <Ship type="large" />
       <div className="flex-hz">
         <GlitchText type="large" text="Void Dodge" />
       </div>
       <div className="title">A tiny javascript game</div>
-      <div className="sub-title">Press anykey to start</div>
+      <div className="sub-title">Press any key to start</div>
     </div>
   );
 }

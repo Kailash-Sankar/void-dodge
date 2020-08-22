@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import classnames from "classnames";
-import "./index.less";
+import * as styles from "./index.less";
 import iconShip from "@images/icon_ship.png";
 
 function GlitchText({ text, type = "default" }) {
@@ -20,11 +20,15 @@ function GlitchText({ text, type = "default" }) {
     return () => clearInterval(interval);
   }, []);
 
-  return <div className={classnames("funky-txt", type)}>{txt}</div>;
+  return <div className={classnames(styles.funkyTxt, type)}>{txt}</div>;
 }
 
-function Blinker({ type = "default" }) {
-  return <div className={classnames("console", type)}><img src={iconShip} alt="<fly-high>" /></div>;
+function Ship({ type = "default" }) {
+  return (
+    <div className={classnames(styles.console, type)}>
+      <img src={iconShip} alt="<fly-high>" />
+    </div>
+  );
 }
 
-export { GlitchText, Blinker };
+export { GlitchText, Ship };
